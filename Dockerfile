@@ -29,7 +29,7 @@ RUN apt-get update && \
 
 # get supervisord up and running
 RUN apt-get update && \
-    apt-get install -y supervisor
+    apt-get install -y supervisor sudo
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY sudoers /etc/sudoers
