@@ -24,7 +24,7 @@ FROM cupenya/docker-oracle-jdk8
 MAINTAINER Elmar Weber <elmar(.)weber(@)cupenya(.)com>
 
 # install basic build tools
-RUN apt-get update && \ 
+RUN apt-get update && \
     apt-get install -y git
 
 # get supervisord up and running
@@ -40,7 +40,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 ENV HOME /home/jenkins
 RUN useradd -c "Jenkins user" -d $HOME -m -G sudo jenkins
 
-ARG VERSION=3.10
+ARG VERSION=4.2
 RUN curl --create-dirs -sSLo /usr/share/jenkins/slave.jar https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/${VERSION}/remoting-${VERSION}.jar \
      && chmod 755 /usr/share/jenkins \
      && chmod 644 /usr/share/jenkins/slave.jar
